@@ -1,0 +1,57 @@
+CREATE TABLE `myshop`.`products` (
+  `ProductsId` INT NOT NULL AUTO_INCREMENT,
+  `ProductName` VARCHAR(45) NOT NULL,
+  `SuplierId` INT NOT NULL,
+  `CategoryId` INT NOT NULL,
+  `Productscol` VARCHAR(45) NOT NULL,
+  `Price` INT NULL,
+  PRIMARY KEY (`ProductsId`));
+ 
+ INSERT INTO `myshop`.`products` (`ProductName`, `SuplierId`, `CategoryId`, `Price`) VALUES ('Chais', '1', '1', '18');
+INSERT INTO `myshop`.`products` (`ProductName`, `SuplierId`, `CategoryId`, `Price`) VALUES ('Chang', '1', '1', '19');
+INSERT INTO `myshop`.`products` (`ProductName`, `SuplierId`, `CategoryId`, `Price`) VALUES ('Aniseed Syrup', '1', '1', '19');
+INSERT INTO `myshop`.`products` (`ProductName`, `SuplierId`, `CategoryId`, `Price`) VALUES ('Chef Anton’s Cajun Seasoning', '2', '2', '22');
+INSERT INTO `myshop`.`products` (`ProductName`, `SuplierId`, `CategoryId`, `Price`) VALUES ('Chef Anton’s Gumbo Mix', '2', '2', '21.35');
+
+  
+  CREATE TABLE `myshop`.`supliers` (
+  `SupliersId` INT NOT NULL AUTO_INCREMENT,
+  `SuplierName` VARCHAR(45) NOT NULL,
+  `City` VARCHAR(45) NOT NULL,
+  `Country` VARCHAR(45) NULL,
+  PRIMARY KEY (`SupliersId`));
+  
+  INSERT INTO `myshop`.`supliers` (`SuplierName`, `City`, `Country`) VALUES ('Exotic Liquid', 'London', 'UK');
+INSERT INTO `myshop`.`supliers` (`SuplierName`, `City`, `Country`) VALUES ('New Orleans Cajun Delights', 'New Orleans', 'USA');
+INSERT INTO `myshop`.`supliers` (`SuplierName`, `City`, `Country`) VALUES ('Grandma Kelly’s Homestead', 'Ann Arbor', 'USA');
+INSERT INTO `myshop`.`supliers` (`SuplierName`, `City`, `Country`) VALUES ('Tokyo Traders', 'Tokyo', 'Japan');
+INSERT INTO `myshop`.`supliers` (`SuplierName`, `City`, `Country`) VALUES ('Cooperativa de Quesos ‘Las Cabras', 'Oviedo', 'Spain');
+  
+  CREATE TABLE `myshop`.`category` (
+  `CategoryId` INT NOT NULL AUTO_INCREMENT,
+  `CategoryName` VARCHAR(45) NOT NULL,
+  `Description` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`CategoryId`));
+  
+  INSERT INTO `myshop`.`category` (`CategoryName`, `Description`) VALUES ('Beverages', 'Soft drinks, coffees, teas, beers, and ales');
+INSERT INTO `myshop`.`category` (`CategoryName`, `Description`) VALUES ('Condiments', 'Sweet and savory sauces, relishes, spreads, and seasonings');
+INSERT INTO `myshop`.`category` (`CategoryName`, `Description`) VALUES ('Confections', 'Desserts, candies, and sweet breads');
+INSERT INTO `myshop`.`category` (`CategoryName`, `Description`) VALUES ('Dairy Products', 'Cheeses');
+INSERT INTO `myshop`.`category` (`CategoryName`, `Description`) VALUES ('Grains/Cereals', 'Breads, crackers, pasta, and cereal');
+
+
+
+1.    SELECT * FROM products WHERE ProductName LIKE 'C%';
+
+2.    SELECT ProductName, Price
+   FROM Products
+   WHERE Price = 
+    (SELECT MIN(Price) FROM Products);
+	
+3.  SELECT SUPLIERS WHERE COUNTRY LIKE 'USA%';
+
+SELECT products.price, supliers.country 
+FROM supliers
+INNER JOIN products ON supliers.country = products.price;
+4.
+5.
